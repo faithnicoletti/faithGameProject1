@@ -1,20 +1,26 @@
+/* -- constants -- */
 const board = [];
 const rows = 8;
 const columns = 8;
 
 const minesCount = 10;
 const minesLocation = []; //mines will be random across the board
+
+/* --- cached elements --- */
 const messageEl = document.querySelector('h2');
 const playAgainBtn = document.getElementById("play-again");
 
+/* --- event listeners--- */
 playAgainBtn.addEventListener('click', resetGame);
 
-let tilesClicked = 0; //goal to click all tiles except the ones containing mines
+let tilesClicked = 0; //goal to click all tiles except the ones containing bears
 let flagEnabled = false;
-
 let winner;
 
-window.onload = function() {
+/* --- functions ---*/
+init();
+//initialize all states and startGame()
+function init() {
     startGame();
 }
 
