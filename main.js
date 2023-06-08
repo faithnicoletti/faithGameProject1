@@ -228,6 +228,8 @@ function revealMines() {
   }
   
   function checkTile(c, r) {
+    for (let c = 0; c < columns; c++) {
+      for (let r = 0; r < rows; r++) {
     if (c < 0 || c >= columns || r < 0 || r >= rows) {
       return 0;
     }
@@ -244,4 +246,6 @@ function revealMines() {
     }
   
     return 0;
+      }
+    }
   }
