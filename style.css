@@ -33,6 +33,29 @@ body {
     align-items: center;
 }
 
+@media only screen and (max-width: 480px) {
+    #board {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-gap: 3px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+      }
+    
+    h3 {
+        font-size: 16px;
+      }
+    }
+
+
 .tile-clicked {
     background-color:#6B8E23;
 }
