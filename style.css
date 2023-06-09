@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto Mono', monospace;;
+    font-family: 'Roboto Mono', monospace;
     font-weight: bold;
     text-align: center;
     color: darkgreen;
@@ -22,8 +22,6 @@ body {
     width: 48px;
     height: 48px;
     border: 1px solid tan;
-
-    /* text */
     font-size: 30px;
     display: flex;
     justify-content: center;

@@ -3,18 +3,20 @@ const rows = 8;
 const columns = 8;
 
 const minesCount = 10;
-const minesLocation = []; //mines will be random across the board
+const minesLocation = [];
+
 const messageEl = document.querySelector('h2');
 const playAgainBtn = document.getElementById("play-again");
 
 playAgainBtn.addEventListener('click', resetGame);
 
-let tilesClicked = 0; //goal to click all tiles except the ones containing mines
+let tilesClicked = 0;
 let flagEnabled = false;
-
 let winner;
 
-window.onload = function() {
+init();
+
+function init() {
     startGame();
 }
 
@@ -66,13 +68,16 @@ function setFlag() {
     }
 }
 
+
 function renderMessage(message) {
     messageEl.innerText = message;
 }
 
+
 function renderControls() {
     playAgainBtn.style.visibility = winner === undefined ? 'hidden': 'visible';
 }
+
 
 function resetGame() {
     tilesClicked = 0;
@@ -80,58 +85,49 @@ function resetGame() {
     winner = undefined;
     minesLocation.length = 0;
 
-    // Remove event listeners from tiles
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             let tile = board[r][c];
             tile.removeEventListener("click", clickTile);
         }
     }
-
-    // Clear the board
     board.length = 0;
     document.getElementById("board").innerHTML = "";
-    
     document.querySelector('h2').innerText = 'Avoid all the grizzly bears!';
     startGame();
 }
+
 
 function clickTile() {
     if (winner !== undefined || this.classList.contains("tile-clicked")) {
         return;
     }
-
     let tile = this;
     if (flagEnabled) {
         let img = tile.querySelector('img');
         if (!img) {
-          // Create the img element if it doesn't exist
           img = document.createElement('img');
           img.src = 'honey2.png';
           img.alt = 'honey';
           img.className = 'honey-icon';
           tile.appendChild(img);
         } else {
-          // Remove the img element if it already exists
           tile.removeChild(img);
         }
         return;
       }
-
-    if (minesLocation.includes(tile.id)) {
+      if (minesLocation.includes(tile.id)) {
         revealMines();
         winner = -1;
         renderControls();
         return;
     }
+        let coords = tile.id.split("-");
+        let r = parseInt(coords[0]);
+        let c = parseInt(coords[1]);
+       checkMine(r, c);
 
-
-    let coords = tile.id.split("-");
-    let r = parseInt(coords[0]);
-    let c = parseInt(coords[1]);
-    checkMine(r, c);
-
-    if (tilesClicked == rows * columns - minesCount) {
+      if (tilesClicked == rows * columns - minesCount) {
         winner = 1;
         renderMessage('You Win!');
         renderControls();
@@ -166,44 +162,43 @@ function checkMine(r, c) {
     if (board[r][c].classList.contains("tile-clicked")) {
         return;
     }
-
     board[r][c].classList.add("tile-clicked");
-    tilesClicked += 1;
 
+    tilesClicked += 1;
     let minesFound = 0;
 
-    //top
-    minesFound += checkTile(r-1, c-1);      //top left
-    minesFound += checkTile(r-1, c);        //top 
-    minesFound += checkTile(r-1, c+1);      //top right
+    
+    minesFound += checkTile(r-1, c-1);    
+    minesFound += checkTile(r-1, c);        
+    minesFound += checkTile(r-1, c+1);      
 
-    //left and right
-    minesFound += checkTile(r, c-1);        //left
-    minesFound += checkTile(r, c+1);        //right
+   
+    minesFound += checkTile(r, c-1);       
+    minesFound += checkTile(r, c+1);        
 
-    //bottom
-    minesFound += checkTile(r+1, c-1);      //bottom left
-    minesFound += checkTile(r+1, c);        //bottom 
-    minesFound += checkTile(r+1, c+1);      //bottom right
+
+    minesFound += checkTile(r+1, c-1);      
+    minesFound += checkTile(r+1, c);        
+    minesFound += checkTile(r+1, c+1);      
 
     if (minesFound > 0) {
         board[r][c].innerText = minesFound;
         board[r][c].classList.add("x" + minesFound.toString());
     }
     else {
-        //top 3
-        checkMine(r-1, c-1);    //top left
-        checkMine(r-1, c);      //top
-        checkMine(r-1, c+1);    //top right
+        
+        checkMine(r-1, c-1);    
+        checkMine(r-1, c);      
+        checkMine(r-1, c+1);    
 
-        //left and right
-        checkMine(r, c-1);      //left
-        checkMine(r, c+1);      //right
+        
+        checkMine(r, c-1);      
+        checkMine(r, c+1);      
 
-        //bottom 3
-        checkMine(r+1, c-1);    //bottom left
-        checkMine(r+1, c);      //bottom
-        checkMine(r+1, c+1);    //bottom right
+        
+        checkMine(r+1, c-1);    
+        checkMine(r+1, c);      
+        checkMine(r+1, c+1);    
     }
 
     if (tilesClicked == rows * columns - minesCount) {
