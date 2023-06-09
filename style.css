@@ -37,8 +37,8 @@ body {
     #board {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
-      padding: 10px;
-      align-items: center;
+      padding-right: 20px;
+      justify-items: center;
       margin: 0 auto;
     }
   }
