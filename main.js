@@ -180,7 +180,7 @@ function checkMine(r, c) {
 
     let minesFound = 0;
 
-    //top 3
+    //top
     minesFound += checkTile(r-1, c-1);      //top left
     minesFound += checkTile(r-1, c);        //top 
     minesFound += checkTile(r-1, c+1);      //top right
@@ -189,7 +189,7 @@ function checkMine(r, c) {
     minesFound += checkTile(r, c-1);        //left
     minesFound += checkTile(r, c+1);        //right
 
-    //bottom 3
+    //bottom
     minesFound += checkTile(r+1, c-1);      //bottom left
     minesFound += checkTile(r+1, c);        //bottom 
     minesFound += checkTile(r+1, c+1);      //bottom right
