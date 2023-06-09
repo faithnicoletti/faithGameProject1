@@ -19,11 +19,6 @@ window.onload = function() {
 }
 
 function setMines() {
-    // minesLocation.push("2-2");
-    // minesLocation.push("2-3");
-    // minesLocation.push("5-6");
-    // minesLocation.push("3-4");
-    // minesLocation.push("1-1");
 
     let minesLeft = minesCount;
     while (minesLeft > 0) { 
@@ -44,11 +39,9 @@ function startGame() {
     document.getElementById("flag-button").addEventListener("click", setFlag);
     setMines();
 
-    //populate our board
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
-            //<div id="0-0"></div>
             let tile = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
             tile.addEventListener("click", clickTile);
@@ -74,7 +67,6 @@ function setFlag() {
 }
 
 function renderMessage(message) {
-    // let messageEl = document.querySelector('h2');
     messageEl.innerText = message;
 }
 
