@@ -12,18 +12,6 @@ body {
     margin-top: 10vmin;
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    body{
-        height: 10vmin;
-        width: 10vmin;
-        font-size: 5vmin;
-    }
-}
-
-
 #board {
     width: 400px;
     height: 400px;
