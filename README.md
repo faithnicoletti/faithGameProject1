@@ -26,13 +26,17 @@ Welcome to Forest Escape, a Minesweeper game with a forest theme! In this game, 
 - Play again feature allows you to start a new game at the end of each game.
 
 ## Getting Started:
-
-Click the link below to play!
-
+ 
+ click the link below to play!
+ https://ornate-sorbet-d2b205.netlify.app
 
 ## Game Screenshots:
 
-
+![Start of game](Start-Game.png)
+![Game in play](Game-in-play.png)
+![Honey Icon in action](honey-in-use.png)
+![Game Lost](Game-lost.png)
+![Game Won](Game-won.png)
 
 ## Technologies Used
 
