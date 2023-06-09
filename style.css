@@ -38,6 +38,7 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       padding: 10px;
+      align-items: centerl
     }
   }
 
@@ -45,13 +46,22 @@ body {
 
     h1 {
       font-size: 24px;
+      align-items: center;
     }
     h2 {
         font-size: 20px;
+        align-items: center;
       }
     
     h3 {
         font-size: 16px;
+        align-items: center;
+      }
+    #flag-button {
+        align-items: center;
+      }
+    #play-again {
+        align-items: center;
       }
     }
 
