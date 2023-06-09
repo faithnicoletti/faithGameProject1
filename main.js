@@ -152,7 +152,7 @@ function revealMines() {
                 mineImg.style.width = '70px';
                 mineImg.style.height = '40px';
                 tile.appendChild(mineImg);
-                tile.style.backgroundColor = "tan";
+                tile.style.backgroundColor = "orange";
             }
         }
     }

@@ -1,16 +1,17 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Mono', monospace;;
     font-weight: bold;
     text-align: center;
     color: darkgreen;
-    margin-top: 5vmin;
+    background-color:tan;
+    margin-top: 10vmin;
 }
 
 #board {
     width: 400px;
     height: 400px;
     border: 10px solid darkgreen;
-    background-color: forestgreen;
+    background-color: darkgreen;
 
     margin: 0 auto;
     display: flex;
@@ -30,39 +31,39 @@ body {
 }
 
 .tile-clicked {
-    background-color: orange;
+    background-color:#6B8E23;
 }
 
 .x1 {
-    color: blue;
+    color: brown
 }
 
 .x2 {
-    color: green;
+    color: #333;
 }
 
 .x3 {
-    color: red;
+    color: wheat;
 }
 
 .x4 {
-    color: navy;
+    color: orange;
 }
 
 .x5 {
-    color: brown;
+    color: oldlace;
 }
 
 .x6 {
-    color: teal;
+    color: peru;
 }
 
 .x7 {
-    color: black;
+    color: #333;
 }
 
 .x8 {
-    color: gray;
+    color: antiquewhite;
 }
 
 #flag-button {
@@ -72,7 +73,7 @@ body {
     padding: 1vmin;
     font-size: 5vmin;
     border-radius: 3vmin;
-    border: 0.2vmin solid green;
+    border: 0.6vmin solid green;
     background-color: tan;
     color: darkgreen;
 }
@@ -87,25 +88,18 @@ body {
     height: 30px; 
 }
 
-#board .tile img[src='grizzly1.png'][src='grizzly1.png'] {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-  }
-  
-
 #play-again {
     margin-top: 4vmin;
+    margin-bottom: 10vmin;
     padding: 2vmin;
-    font-size: 2vmin;
+    font-size: 3vmin;
     border-radius: 4vmin;
-    border: 0.2vmin solid green;
-    background-color: tan;
-    color: darkgreen;
+    border: 0.2vmin solid #333;
+    background-color: orange;
+    color: #333;
 }
 
 #play-again:hover {
-    color: tan;
+    color: orange;
     background-color: darkgreen;
 }
